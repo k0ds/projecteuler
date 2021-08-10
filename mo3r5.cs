@@ -2,98 +2,41 @@
 Find the sum of all the multiples of 3 or 5 below 1000.*/
 using System;
 
-    namespace mo3r5
+namespace mo3r5
+{
+    class Program
     {
-        class Program
+        public static void Main(String[] args)
         {
-            public static void Main(String[] args)
+
+            double upper = 1000;
+            double lower = 1;
+            double numtotal = 0;
+
+            double num = lower;
+
+            while (num < upper)
             {
-
-               int upper = 1000;
-               int lower = 1;
-               int numtotal = 0;
-
-               int num = lower;
-
-               while (num <= upper)
-               {
-                  if (isMultipleOf5(num) == true)
-                  {
-                      
-                    numtotal = numtotal + num;
-                    //num++;
-
-                    
-                  }
-                  else
-                  {
-                      //num++;
-                  }
-
-                  if (isMultipleOf3(num) == true)
-                  {
-                     numtotal = numtotal + num;
-                     //num++;
-
-                  }
-                  else
-                  {
-                      //num++;
-                  }
-                  
-                
-
-               }
-                   Console.WriteLine(num);
-
-
-
-
-
-
-
-
-            }
-
-
-            public static bool isMultipleOf5(int num1)
-            {
-                num1 =  num1 / 5;
-                if (isOdd(num1) == false) // if  the number divided by 5 is even  then it is a multiple
+                if (isMultipleOf5(num) == true || isMultipleOf3(num))
                 {
-                   return true;
+
+                    numtotal = numtotal + num;
+                    num++;
+
 
                 }
                 else
                 {
-                    return false;
+                    num++;
                 }
 
-            }
-
-
-            public static bool isMultipleOf3(int num2)
-            {
-             num2 = num2 / 3;
-             if (isOdd(num2) == false )
-             {
-                   return true;
-             }
-             else
-             {
-                 return false;
-             }
+               
+                //Console.WriteLine(num); uncomment to see output each iteration
 
 
             }
+            Console.WriteLine(numtotal);
 
-            public static bool isOdd(int num3)
-            {
-              return num3%2 !=0;
-
-
-
-            }
 
 
 
@@ -102,4 +45,53 @@ using System;
 
 
         }
+
+
+        public static bool isMultipleOf5(double num1)
+        {
+            
+            if ( num1 % 5 == 0) // if  the number divided by 5 is even  then it is a multiple
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+
+        public static bool isMultipleOf3(double num2)
+        {
+           
+            
+            if ( num2 % 3 == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+
+        }
+
+        public static bool isOdd(double num3)
+        {
+            return num3 % 2 != 0;
+
+
+
+        }
+
+
+
+
+
+
+
     }
+}
